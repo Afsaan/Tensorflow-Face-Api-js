@@ -3,5 +3,9 @@ from django.urls import path, include
 from face_api_js import views
 
 urlpatterns = [
-    path('', views.index)
+    path('', views.index),
+    path('mtcnn', views.mtcnn),
+    path('tiny', views.tiny),
+    path('ssd', views.ssd),
+    
 ]
