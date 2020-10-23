@@ -3,8 +3,8 @@ const video = document.getElementById('video')
 
 Promise.all(
     [
-        faceapi.loadMtcnnModel('/models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('/models')
+        faceapi.loadMtcnnModel('../models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('../models')
     ]
 
 ).then(start_video)
