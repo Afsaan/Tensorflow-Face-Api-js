@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,36 +13,38 @@
     <title>tensorflow js</title>
   </head>
   <body>
-     <div class="container">
+    <div class="container">
         <h1>Face detection models</h1>
+    </div>    
+     <div class="container">
         <div class="row">
           <div class="col-lg">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{% static 'images/demo.jpeg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">MTCNN </h5>
                   <p class="card-text">MTCNN (Multi-task Cascaded Convolutional Neural Networks) represents an alternative face detector to SSD Mobilenet v1 and Tiny Yolo v2, which offers much more room for configuration.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="mtcnn" class="btn btn-primary">Demo</a>
                 </div>
               </div>
           </div>
           <div class="col-lg">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{% static 'images/demo1.png' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Tiny Face Detector</h5>
                   <p class="card-text">The Tiny Face Detector is a very performant, realtime face detector, which is much faster, smaller and less resource consuming compared to the SSD Mobilenet V1 face detector,</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="tiny" class="btn btn-primary">Demo</a>
                 </div>
               </div>
           </div>
           <div class="col-lg">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{% static 'images/demo2.png' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">SSD Mobilenet V1 </h5>
                   <p class="card-text">The neural net will compute the locations of each face in an image and will return the bounding boxes together with it's probability for each face. The size of the quantized model is about 5.4 MB </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="ssd" class="btn btn-primary">Demo</a>
                 </div>
               </div>
           </div>
