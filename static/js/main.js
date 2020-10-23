@@ -3,8 +3,8 @@ const video = document.getElementById('video')
 
 Promise.all(
     [
-        faceapi.loadMtcnnModel('../models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('../models')
+        faceapi.loadMtcnnModel('static/models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('static/models')
     ]
 
 ).then(start_video)
@@ -17,15 +17,28 @@ function start_video(){
     )
 }
 
+const mtcnnForwardParams = {
+    // number of scaled versions of the input image passed through the CNN
+    // of the first stage, lower numbers will result in lower inference time,
+    // but will also be less accurate
+    maxNumScales: 10,
+    // scale factor used to calculate the scale steps of the image
+    // pyramid used in stage 1
+    scaleFactor: 0.709,
+    // the score threshold values used to filter the bounding
+    // boxes of stage 1, 2 and 3
+    scoreThresholds: [0.6, 0.7, 0.7],
+    // mininum face size to expect, the higher the faster processing will be,
+    // but smaller faces won't be detected
+    minFaceSize: 50
+  }
 // start_video()
 video.addEventListener('play', () =>
 {
     setInterval(async () => {
-       const detections = await faceapi.detectAllFaces(video, new faceapi.MtcnnOptions()).withFaceLandmarks() 
-       console.log(detections.length  )
-        point_36_x = detections[0]['landmarks']['_positions'][36]['_x']
-        point_36_y = detections[0]['landmarks']['_positions'][36]['_y']
-       console.log(point_36_x )
-       console.log(point_36_y )
+    //    const detections = await faceapi.detectAllFaces(video, new faceapi.MtcnnOptions()).withFaceLandmarks() 
+       const mtcnnResults = await faceapi.mtcnn(video, mtcnnForwardParams)
+
+       console.log(mtcnnResults.length  )
         
 })})
