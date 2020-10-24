@@ -43,7 +43,6 @@ video.addEventListener('play', () =>
     faceapi.matchDimensions(canvas, displaySize)
     setInterval(async () => {
        const detections = await faceapi.detectAllFaces(video, new faceapi.MtcnnOptions(mtcnnForwardParams))
-       console.log(detections.length  )
        const resized_detection = faceapi.resizeResults(detections, displaySize)
        canvas.getContext('2d').clearRect(0,0, canvas.width, canvas.height)
        faceapi.draw.drawDetections(canvas , resized_detection )
