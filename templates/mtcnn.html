@@ -4,7 +4,7 @@
     <head>
         <script defer src="{% static 'js/face-api.min.js' %}"></script>
 
-        <script defer src="{% static 'js/main.js' %}"></script>
+        <script defer src="{% static 'js/mtcnn.js' %}"></script>
         <style>
             body { 
                 margin: 0;
@@ -15,6 +15,10 @@
                 justify-content: center;
                 align-items: center;
             }   
+        
+            canvas {
+                position: absolute
+            }
         </style>
        <body>
            <video id="video" width='720' height='560' autoplay muted></video>
