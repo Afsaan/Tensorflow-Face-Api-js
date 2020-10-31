@@ -11,3 +11,9 @@ def tiny(request):
 
 def ssd(request):
     return render(request, 'mobilenet.html')
+
+def landmark(request):
+    return render(request, 'landmark.html')
+
+def emotion(request):
+    return render(request, 'emotion.html')
