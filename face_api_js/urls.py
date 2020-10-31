@@ -7,5 +7,8 @@ urlpatterns = [
     path('mtcnn', views.mtcnn),
     path('tiny', views.tiny),
     path('ssd', views.ssd),
+    path('landmark', views.landmark),
+    path('emotion', views.emotion),
+
     
 ]
